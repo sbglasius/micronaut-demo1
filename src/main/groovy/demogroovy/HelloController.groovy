@@ -8,8 +8,8 @@ import io.micronaut.http.HttpStatus
 @Controller("/hello")
 class HelloController {
 
-    @Get("/")
-    String index() {
-        return "Hello world"
+    @Get("/{name}")
+    String index(String name) {
+        return "Hello $name"
     }
 }

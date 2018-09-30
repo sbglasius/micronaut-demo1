@@ -18,9 +18,9 @@ class HelloControllerSpec extends Specification {
 
     void "test index"() {
         given:
-        String response = client.toBlocking().retrieve(HttpRequest.GET('/hello'))
+        String response = client.toBlocking().retrieve(HttpRequest.GET('/hello/audience'))
 
         expect:
-        response == 'Hello world'
+        response == 'Hello audience'
     }
 }
