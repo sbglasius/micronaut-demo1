@@ -15,7 +15,7 @@ class HelloClientSpec extends Specification {
 
     void "test hello client"() {
         given:
-            Message response = helloClient.index('audience')
+            Message response = helloClient.index('audience').blockingGet()
 
         expect:
             response.text == 'Hello audience'

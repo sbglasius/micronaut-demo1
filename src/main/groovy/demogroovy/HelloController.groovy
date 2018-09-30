@@ -2,6 +2,7 @@ package demogroovy
 
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
+import io.reactivex.Single
 
 import javax.inject.Inject
 
@@ -9,7 +10,7 @@ import javax.inject.Inject
 class HelloController {
     @Inject HelloService helloService
     @Get("/{name}")
-    Message index(String name) {
-        return helloService.sayHello(name)
+    Single<Message> index(String name) {
+        return Single.just(helloService.sayHello(name))
     }
 }
