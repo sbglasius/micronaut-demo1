@@ -1,6 +1,7 @@
 package demogroovy
 
 import io.micronaut.context.ApplicationContext
+import io.micronaut.http.HttpRequest
 import io.micronaut.runtime.server.EmbeddedServer
 import io.micronaut.http.client.RxHttpClient
 import io.micronaut.http.HttpResponse
@@ -17,9 +18,9 @@ class HelloControllerSpec extends Specification {
 
     void "test index"() {
         given:
-        HttpResponse response = client.toBlocking().exchange("/hello")
+        String response = client.toBlocking().retrieve(HttpRequest.GET('/hello'))
 
         expect:
-        response.status == HttpStatus.OK
+        response == 'Hello world'
     }
 }

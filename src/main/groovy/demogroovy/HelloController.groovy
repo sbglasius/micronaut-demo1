@@ -9,7 +9,7 @@ import io.micronaut.http.HttpStatus
 class HelloController {
 
     @Get("/")
-    HttpStatus index() {
-        return HttpStatus.OK
+    String index() {
+        return "Hello world"
     }
 }
