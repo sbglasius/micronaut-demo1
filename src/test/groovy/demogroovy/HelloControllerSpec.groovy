@@ -2,10 +2,8 @@ package demogroovy
 
 import io.micronaut.context.ApplicationContext
 import io.micronaut.http.HttpRequest
-import io.micronaut.runtime.server.EmbeddedServer
 import io.micronaut.http.client.RxHttpClient
-import io.micronaut.http.HttpResponse
-import io.micronaut.http.HttpStatus
+import io.micronaut.runtime.server.EmbeddedServer
 import spock.lang.AutoCleanup
 import spock.lang.Shared
 import spock.lang.Specification
@@ -21,6 +19,6 @@ class HelloControllerSpec extends Specification {
         String response = client.toBlocking().retrieve(HttpRequest.GET('/hello/audience'))
 
         expect:
-        response == 'Hello audience'
+        response == '{"text":"Hello audience"}'
     }
 }
